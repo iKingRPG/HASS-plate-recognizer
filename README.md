@@ -62,6 +62,12 @@ sensor:
         value_template: "{{ state_attr('image_processing.platerecognizer_1', 'watched_plates').kbw46ba }}"
 ```
 
+If you are in a country/region where plates start with a number, you will need to add ```""``` around each plate number when configuring your binary sensors, as shown in the example below. This is because Home Assistant doesn't allow variables to start with a number.
+
+```yaml
+value_template: "{{ state_attr('image_processing.platerecognizer_1', 'watched_plates')."123456" }}"
+```
+
 ## Video of usage
 Checkout this excellent video of usage from [Everything Smart Home](https://www.youtube.com/channel/UCrVLgIniVg6jW38uVqDRIiQ)
 
